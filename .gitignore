@@ -1,0 +1,53 @@
+# Env & local config
+.env
+.env.*
+!.env.example
+.vscode/
+*.local
+
+# Build artifacts
+build/
+dist/
+.next/
+.tmp/
+
+# Theme archives / exports
+/tethys-theme/*.zip
+tethys-theme*.zip
+
+# Raw/binary media (keep in S3)
+audio/**
+public/audio/**
+tethys-theme/audio_extended/**
+tethys-theme/Tethys-theme_3/assets/audio/**
+
+# Allow docs/scripts inside media dirs
+!audio/**/*.md
+!public/audio/**/*.md
+!tethys-theme/audio_extended/**/*.md
+
+# Reaper project files, peaks & backups
+*.RPP
+*.rpp-bak
+public/audio/peaks/**
+tethys-theme/audio_extended/peaks/**
+
+# Caption exports
+captions/**/*.srt
+captions/**/*.vtt
+
+# Archives & large binaries
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.psd
+*.ai
+
+# Misc workspace files
+Debug
+.idea/
+*.swp
+*.swo
+*.bk
