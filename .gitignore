@@ -1,31 +1,67 @@
-# Node / tooling
-node_modules/
+# OS junk
 .DS_Store
+.DS_Store?
+*/.DS_Store
+Thumbs.db
+
+# Node/tooling
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
 *.log
 
 # Env & local config
 .env
-.env.local
-.env.development
-.env.production
+.env.*
+!.env.example
+.vscode/
+*.local
 
 # Build artifacts
 build/
+dist/
+.next/
+.tmp/
 
-# Media masters (keep repos light)
-audio/**/*.wav
-audio/**/*.mp3
-audio/**/*.mp4
-audio/**/*.m4a
-audio/**/*.flac
-audio/**/*.aac
-audio/**/*.aiff
-audio/**/*.aif
-audio/**/*.ogg
-audio/**/*.zip
+# Bundled theme archives
+/tethys-theme/*.zip
+tethys-theme*.zip
+
+# Raw media (managed in S3)
+public/audio/**
+audio/**
+tethys-theme/audio_extended/**
+tethys-theme/Tethys-theme_3/assets/audio/**
+
+# Allow small docs/scripts inside media dirs
+!public/audio/**/*.md
+!audio/**/*.md
+!tethys-theme/audio_extended/**/*.md
+
+# Reaper project files & peaks
+*.RPP
+*.rpp-bak
+public/audio/peaks/**
+tethys-theme/audio_extended/peaks/**
+
+# Captions
 captions/**/*.srt
 captions/**/*.vtt
 
-# Allow docs inside media folders
-!audio/**/*.md
-!captions/**/*.md
+# Archives & large binaries
+*.zip
+*.gzip
+*.tar
+*.tar.gz
+*.7z
+*.psd
+*.ai
+
+# Misc workspace files
+Debug
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bk
