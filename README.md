@@ -131,6 +131,27 @@ Use these names when creating Stripe Products, Substack tiers, and Patreon membe
 3. Encode a short preview MP3, then push preview + full ZIP to S3 via `npm run media:upload path/to/file -- --key=signals/ep01/<preview-or-zip> --public`.
 4. Paste the new URLs into `public/tethys-links.js`. The `signals-from-tethys.html` preview player (`data-audio-link="previewSignalsEp01"`) and download CTAs update immediately.
 
+### Restoring heavy media locally
+
+All WAV/MP3 masters now live exclusively in S3 so the repo stays below GitHub's
+100 MB cap. To hydrate your workstation:
+
+```bash
+pip install boto3                # first time only
+export $(cat .env | xargs)       # or use direnv/foreman
+python scripts/download_media.py --all
+```
+
+The script pulls:
+
+- `public/audio` → `media/public/audio`
+- `tethys-theme/audio_extended` → `media/tethys-theme/audio_extended`
+- `audio/` REAPER sources → `media/audio`
+- Theme ZIP exports → `archives/…`
+
+You can limit downloads (e.g., `--groups site-audio theme-audio`) if you only
+need part of the tree.
+
 ## CI/CD pipeline (GitHub Actions → S3)
 
 - `.github/workflows/deploy.yml` installs dependencies, builds Tailwind, syncs `/public`, stages the root `.html` files into `build/static/`, and syncs that folder into the S3 bucket defined by `PUBLIC_ASSET_BUCKET`.
