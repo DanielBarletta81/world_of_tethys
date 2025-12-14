@@ -1,0 +1,31 @@
+# Node / tooling
+node_modules/
+.DS_Store
+*.log
+
+# Env & local config
+.env
+.env.local
+.env.development
+.env.production
+
+# Build artifacts
+build/
+
+# Media masters (keep repos light)
+audio/**/*.wav
+audio/**/*.mp3
+audio/**/*.mp4
+audio/**/*.m4a
+audio/**/*.flac
+audio/**/*.aac
+audio/**/*.aiff
+audio/**/*.aif
+audio/**/*.ogg
+audio/**/*.zip
+captions/**/*.srt
+captions/**/*.vtt
+
+# Allow docs inside media folders
+!audio/**/*.md
+!captions/**/*.md
